@@ -1,0 +1,50 @@
+---
+title: "index"
+output: html_document
+---
+
+# Introduction
+
+The incarceration trends dataset by **Vera** is an important one that answers 
+questions regarding the rehabilitation and process of recovery of the U.S.'s
+inmates as well as questions regarding the justice system. Particularly with 
+this assignment, I want to focus on the prison population of inmates from different
+races and compare them to see how they differ. The variables I'd like to focus
+on includes all the prison population by race columns, the location such as state
+or urban/rural areas, and the difference between genders. 
+
+# Summary Information
+
+The first relevant value of interest I'd like to calculate is the state with the largest number of prisoners. Turns out, this value is Florida with 54835
+prisoners. This would allow me to better understand where these inmates are and to help compare this value with the total number of prisoners of each race/ethnicity. 
+
+The second relevant value of interest I'd like to calculate is the percentage of black prisoners in Florida, the state with the largest number of prisoners. I'll use my findings in the first summary value to compute this. In the end, I calculated that approximately 36% of the prison population in Florida is black.  
+
+The third relevant value of interest I'd like to calculate is the black prison population in Washington. Coming from Washington, and knowing that the demographic is mostly blue, I'd like to know how many inmates are black in Washington. Turns out, there are 1992.39 black inmates in Washington. This is 10 times less than the number of black inmates in Florida. I'd also like to mention that this is 1/23 the population of UW students. This puts into perspective the scale and amount of inmates we have in this state. 
+
+The fourth relevent value of interest I'd like to calculate is the total population of prisoners jailed from the Immigration and Customs Enforcement  or ICE. I always hear about the injustice imprisonment of immagrants and other hispanic 'looking' citizens in Texas or Arizona, but I'd like to see if there are any in the state of Washington. Turns out, there are 53 prisoners that was jailed from ICE in Washington. 
+
+The fifth and final relevent value of interest I'd like to calculate is the state with the least number of inmates. 
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R Markdown
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+```{r cars}
+summary(cars)
+```
+
+## Including Plots
+
+You can also embed plots, for example:
+
+```{r pressure, echo=FALSE}
+plot(pressure)
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.

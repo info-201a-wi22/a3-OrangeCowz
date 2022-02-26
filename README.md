@@ -14,3 +14,8 @@ In this assignment, you'll create the necessary files to perform the analysis de
 >
 >where ORGANIZATION_NAME is your GitHub User ID and REPO_NAME is the name of the assignment (e.g., `a3-dghendry`)
 * Go to the "pages" page (via the "settings" tab) to configure your webserver to published your reports from the `/docs` directory
+
+
+incarceration_trends <- read.csv("https://raw.githubusercontent.com/vera-institute/incarceration-trends/master/incarceration_trends.csv")
+
+

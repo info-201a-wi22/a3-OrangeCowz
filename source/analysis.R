@@ -2,6 +2,7 @@
 
 library("dplyr")
 library("tidyverse")
+library("ggplot2")
 incarceration_trends <- read.csv("https://raw.githubusercontent.com/vera-institute/incarceration-trends/master/incarceration_trends.csv")
 
 
@@ -75,22 +76,30 @@ year_1999_black_prison_pop_fl <- incarceration_trends %>%
 
 # Trends Over Time Chart
 
+
+yearly_wa_black_white_jail_pop <- incarceration_trends %>%
+  group_by(year) %>%
+  filter(state == "WA") %>%
+  summarize(sum(black_jail_pop), sum(white_jail_pop))
+
 wa_trends_over_time_df <- incarceration_trends %>%
   group_by(state) %>%
   filter(state == "WA") %>%
-  select(year, black_jail_pop, white_jail_pop, total_jail_pop)
+  select(year, black_jail_pop, white_jail_pop)
 
 
 
-trends_over_time <- ggplot(wa_trends_over_time_df, aes(x = years, y = black_jail_pop, y = white_jail_pop)) +
-  genom_line() + 
-  genom_smooth() + 
+trends_over_time <- ggplot(yearly_wa_black_white_jail_pop, aes(x = year)) + 
+  geom_line(aes(y = 'sum(black_jail_pop)'), color = "orangered1") + 
+  geom_line(aes(y = 'sum(white_jail_pop)'), color = "skyblue2") + 
   labs(
-    x = "Years",
-    y = "Jail Population",
-    title = "Plot of the Jail Population of White VS. Black per year",
-    subtitle = "Grouped by Team of Starters in the NBA"
-  ))
+    x = "years",
+    y = "Prison Population by race",
+    title = "The correlation between black and white jail population in Washington",
+    subtitle = "Grouped by race"
+  )
+
+trends_over_time  
 
 
 

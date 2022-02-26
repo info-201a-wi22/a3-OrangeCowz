@@ -22,9 +22,11 @@ The second relevant value of interest I'd like to calculate is the percentage of
 
 The third relevant value of interest I'd like to calculate is the black prison population in Washington. Coming from Washington, and knowing that the demographic is mostly blue, I'd like to know how many inmates are black in Washington. Turns out, there are 1992.39 black inmates in Washington. This is 10 times less than the number of black inmates in Florida. I'd also like to mention that this is 1/23 the population of UW students. This puts into perspective the scale and amount of inmates we have in this state. 
 
-The fourth relevent value of interest I'd like to calculate is the total population of prisoners jailed from the Immigration and Customs Enforcement  or ICE. I always hear about the injustice imprisonment of immagrants and other hispanic 'looking' citizens in Texas or Arizona, but I'd like to see if there are any in the state of Washington. Turns out, there are 53 prisoners that was jailed from ICE in Washington. 
+The fourth relevant value of interest I'd like to calculate is the total population of prisoners jailed from the Immigration and Customs Enforcement  or ICE. I always hear about the injustice imprisonment of immigrants and other hispanic 'looking' citizens in Texas or Arizona, but I'd like to see if there are any in the state of Washington. Turns out, there are 53 prisoners that was jailed from ICE in Washington. 
 
-The fifth and final relevent value of interest I'd like to calculate is the state with the least number of inmates. 
+The fifth and final relevant value of interest I'd like to calculate is the percentage of black prisoners in Florida in 1999. I'd like to compare this number with my second relevant value to see if there are any trends. The total number of black prisoners in Florida was 23622.87, which is much larger than I had originally thought. For context, the current population in Florida in 2018 is 19938.5. 
+
+
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
@@ -35,8 +37,8 @@ This is an R Markdown document. Markdown is a simple formatting syntax for autho
 
 When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
 
-```{r cars}
-summary(cars)
+``````{r summrary information, echo = TRUE, message = TRUE}
+source("../source/analysis.R")
 ```
 
 ## Including Plots

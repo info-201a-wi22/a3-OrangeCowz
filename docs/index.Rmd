@@ -37,15 +37,16 @@ This is an R Markdown document. Markdown is a simple formatting syntax for autho
 
 When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
 
-``````{r summrary information, echo = TRUE, message = TRUE}
-source("../source/analysis.R")
+```{r summrary information, echo = TRUE, message = TRUE}
+source("../source/summary_information.R")
+
 ```
 
 ## Including Plots
 
 You can also embed plots, for example:
 
-```{r pressure, echo=FALSE}
+```{r trends over time plot, include = TRUE}
 source("../source/analysis.R")
 
 plot(trends_over_time)
@@ -57,7 +58,7 @@ Perhaps this is due to the media focusing on this particular demographic and so 
 
 
 
-```{r pressure, echo=FALSE}
+```{r variable comparison plot, inclyde = TRUE}
 source("../source/analysis.R")
 
 plot(variable_comparison_chart)
@@ -66,13 +67,6 @@ plot(variable_comparison_chart)
 For my 2 variable comparison chart, I wanted to find if there was a correlation between the total jail population of juvenile males in each state compared to the total number of adult males in prions. Though I wanted to focus on race, there is no doubt that another big factor in these incarceration rates is the influence of a father-like figure in a child's life. Especially for a young male, a father figure could heavily influence the future and outlook of the child. 
 
 In plotting the Juvenile Male Jail Population Vs. the Adult Male Jail Population, I found that there seems to be a positive correlation between the two variables for each of the states. This means that the more adult males there are in prison, the more juvenile males are in prison also. The only major outliers I could see is New York (NY) with a much larger juvenile male jail population than adult male jail population compared to other states and California (CA), where there is a much larger adult male jail population than juveniles. That said, it may be that these two are the largest states in the country and could carry a lot more people, and so the data may be a bit biased or skewed. 
-
-
-```{r pressure, echo=FALSE}
-source("../source/analysis.R")
-
-plot(trends_over_time)
-```
 
 
 

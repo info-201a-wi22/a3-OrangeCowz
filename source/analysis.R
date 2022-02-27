@@ -3,6 +3,12 @@
 library("dplyr")
 library("tidyverse")
 library("ggplot2")
+library("maps")
+library("mapproj")
+library("leaflet")
+library("DT")
+library("knitr")
+library("stringr")
 incarceration_trends <- read.csv("https://raw.githubusercontent.com/vera-institute/incarceration-trends/master/incarceration_trends.csv")
 
 
@@ -150,53 +156,4 @@ variable_comparison_chart <- ggplot(adult_juvenile_male_jail_pop, aes(x = adult_
   )
 
 variable_comparison_chart
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-df_male_over_total_jail_pop <- male_over_total_jail_pop %>%
-  select(state, 'sum(male_jail_pop, na.rm = TRUE)', 'sum(total_jail_pop, na.rm = TRUE)') %>%
-  gather(key = "Population", value = "value", -state)
-
-
-
-variable_comparison_chart <- ggplot(df_male_female_jail_pop, aes(x = state, y = value)) + 
-  geom_line(aes(color = States), size = 1) +
-  scale_color_manual(values = c("antiquewhite4", "darkseagreen3"),
-                     labels = c("Female Jail Population", "Male Jail Population")) +
-  labs(
-    x = "Years",
-    y = "Jail Population",
-    title = "The Prison Population Of Male Vs. Female Inmates In Washington Over Years",
-    subtitle = "Grouped By Gender As Defined By The Key"
-  )
-
-variable_comparison_chart
-
-  
-nba <- NBA %>%
-  group_by(Tm) %>%
-  summarize(games = mean(G), points = mean(PTS))
-
-# (dot plot)
-chart_1 <- ggplot(nba, aes(x = games, y = points)) + 
-  geom_point(aes(colour = factor(Tm), size = 0.5)) + 
-  geom_smooth() + 
-  labs(
-    x = "Average Games",
-    y = "Average Points",
-    title = "Correlation Between # of Games and Points by Team",
-    subtitle = "Grouped by Team of Starters in the NBA"
-  )
 

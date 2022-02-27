@@ -112,6 +112,66 @@ trends_over_time
 
 
 
+# Testing 2
+
+yearly_wa_jail_pop <- incarceration_trends %>%
+  group_by(year) %>%
+  filter(state == "WA") %>%
+  summarize(sum(black_jail_pop), sum(white_jail_pop), sum(aapi_jail_pop), sum(latinx_jail_pop), sum(native_jail_pop))
+
+
+
+df_yearly_wa_jail_pop <- yearly_wa_jail_pop %>%
+  select(year, 'sum(black_jail_pop)', 'sum(white_jail_pop)', 'sum(aapi_jail_pop)', 'sum(latinx_jail_pop)', 'sum(native_jail_pop)') %>%
+  gather(key = "Key", value = "value", -year)
+
+
+testing_trends_over_time <- ggplot(df_yearly_wa_jail_pop, aes(x = year, y = value)) + 
+  geom_line(aes(color = Key), size = 1) + 
+  scale_color_manual(values = c("skyblue2", "darkorange1", "darkorchid", "darkolivegreen", "burlywood3"),
+                     labels = c("Asian American & Pacific Islander Jail Population", "Black Jail Population", "Latinx Population", "Native Population", "White Population")) +
+  labs(
+    x = "Years",
+    y = "Jail Population",
+    title = "The Prison Population By Race Of Inmates In Washington Over Years",
+    subtitle = "Grouped By Race As Defined By The Key"
+  )
+
+testing_trends_over_time  
+
+
+
+# Variable Comparison Chart
+
+
+
+male_female_jail_pop <- incarceration_trends %>%
+  group_by(year) %>%
+  filter(state == "WA") %>%
+  summarize(sum(male_jail_pop), sum(female_jail_pop), sum(total_jail_pop))
+
+
+
+df_male_female_jail_pop <- male_female_jail_pop %>%
+  select(year, 'sum(male_jail_pop)', 'sum(female_jail_pop)', 'sum(total_jail_pop)') %>%
+  gather(key = "Gender", value = "value", -year)
+
+
+
+variable_comparison_chart <- ggplot(df_male_female_jail_pop, aes(x = 'sum(total_jail_pop)', y = value)) + 
+  geom_line(aes(color = Gender), size = 1) + 
+  geom_point(aes(color = Gender), size = 1) +
+  scale_color_manual(values = c("antiquewhite4", "darkseagreen3"),
+                     labels = c("Female Jail Population", "Male Jail Population")) +
+  labs(
+    x = "Years",
+    y = "Jail Population",
+    title = "The Prison Population Of Male Vs. Female Inmates In Washington Over Years",
+    subtitle = "Grouped By Gender As Defined By The Key"
+  )
+
+variable_comparison_chart
+
 
 
 

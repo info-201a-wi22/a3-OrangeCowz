@@ -83,18 +83,9 @@ yearly_wa_black_white_jail_pop <- incarceration_trends %>%
   summarize(sum(black_jail_pop), sum(white_jail_pop))
 
 
-
 df_yearly_wa_black_white_jail_pop <- yearly_wa_black_white_jail_pop %>%
   select(year, 'sum(black_jail_pop)', 'sum(white_jail_pop)') %>%
   gather(key = "Key", value = "value", -year)
-
-
-
-wa_trends_over_time_df <- incarceration_trends %>%
-  group_by(state) %>%
-  filter(state == "WA") %>%
-  select(year, black_jail_pop, white_jail_pop)
-
 
 
 trends_over_time <- ggplot(df_yearly_wa_black_white_jail_pop, aes(x = year, y = value)) + 
@@ -144,23 +135,44 @@ testing_trends_over_time
 # Variable Comparison Chart
 
 
-
-male_female_jail_pop <- incarceration_trends %>%
-  group_by(year) %>%
-  filter(state == "WA") %>%
-  summarize(sum(male_jail_pop), sum(female_jail_pop), sum(total_jail_pop))
+adult_juvenile_male_jail_pop <- incarceration_trends %>%
+  group_by(state) %>%
+  summarize(adult_male_jail_pop = sum(male_adult_jail_pop, na.rm = TRUE), juvenile_male_jail_pop = sum(male_juvenile_jail_pop, na.rm = TRUE))
 
 
+variable_comparison_chart <- ggplot(adult_juvenile_male_jail_pop, aes(x = adult_male_jail_pop, y = juvenile_male_jail_pop)) +
+  geom_point(aes(color = state), size = 1) +
+  labs(
+    x = "Adult Male Jail Population",
+    y = "Juvenile Male Jail Population", 
+    title = "Total Juvenile Male Jail Population Vs. Adule Male Jail Population",
+    subtitle = "Grouped by State"
+  )
 
-df_male_female_jail_pop <- male_female_jail_pop %>%
-  select(year, 'sum(male_jail_pop)', 'sum(female_jail_pop)', 'sum(total_jail_pop)') %>%
-  gather(key = "Gender", value = "value", -year)
+variable_comparison_chart
 
 
 
-variable_comparison_chart <- ggplot(df_male_female_jail_pop, aes(x = 'sum(total_jail_pop)', y = value)) + 
-  geom_line(aes(color = Gender), size = 1) + 
-  geom_point(aes(color = Gender), size = 1) +
+
+
+
+
+
+
+
+
+
+
+
+
+df_male_over_total_jail_pop <- male_over_total_jail_pop %>%
+  select(state, 'sum(male_jail_pop, na.rm = TRUE)', 'sum(total_jail_pop, na.rm = TRUE)') %>%
+  gather(key = "Population", value = "value", -state)
+
+
+
+variable_comparison_chart <- ggplot(df_male_female_jail_pop, aes(x = state, y = value)) + 
+  geom_line(aes(color = States), size = 1) +
   scale_color_manual(values = c("antiquewhite4", "darkseagreen3"),
                      labels = c("Female Jail Population", "Male Jail Population")) +
   labs(
@@ -172,6 +184,19 @@ variable_comparison_chart <- ggplot(df_male_female_jail_pop, aes(x = 'sum(total_
 
 variable_comparison_chart
 
+  
+nba <- NBA %>%
+  group_by(Tm) %>%
+  summarize(games = mean(G), points = mean(PTS))
 
-
+# (dot plot)
+chart_1 <- ggplot(nba, aes(x = games, y = points)) + 
+  geom_point(aes(colour = factor(Tm), size = 0.5)) + 
+  geom_smooth() + 
+  labs(
+    x = "Average Games",
+    y = "Average Points",
+    title = "Correlation Between # of Games and Points by Team",
+    subtitle = "Grouped by Team of Starters in the NBA"
+  )
 

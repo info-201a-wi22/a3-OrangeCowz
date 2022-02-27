@@ -31,22 +31,16 @@ The fifth and final relevant value of interest I'd like to calculate is the perc
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-## R Markdown
-
-This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
-
-When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+## Summary Information Statistics
 
 ```{r summrary information, echo = TRUE, message = TRUE}
 source("../source/summary_information.R")
 
 ```
 
-## Including Plots
+## Trends Over Time Plot
 
-You can also embed plots, for example:
-
-```{r trends over time plot, include = TRUE}
+```{r trends over time plot, include = TRUE, echo = FALSE}
 source("../source/analysis.R")
 
 plot(trends_over_time)
@@ -57,8 +51,9 @@ In my trends_over_time plot, my goal was to compare the increase or decrease in 
 Perhaps this is due to the media focusing on this particular demographic and so it seems like black crime and black inmates make up the majority, when in reality, this isn't the case. 
 
 
+## Variable Comparison Plot
 
-```{r variable comparison plot, inclyde = TRUE}
+```{r variable comparison plot, include = TRUE, echo = FALSE}
 source("../source/analysis.R")
 
 plot(variable_comparison_chart)
@@ -69,6 +64,3 @@ For my 2 variable comparison chart, I wanted to find if there was a correlation 
 In plotting the Juvenile Male Jail Population Vs. the Adult Male Jail Population, I found that there seems to be a positive correlation between the two variables for each of the states. This means that the more adult males there are in prison, the more juvenile males are in prison also. The only major outliers I could see is New York (NY) with a much larger juvenile male jail population than adult male jail population compared to other states and California (CA), where there is a much larger adult male jail population than juveniles. That said, it may be that these two are the largest states in the country and could carry a lot more people, and so the data may be a bit biased or skewed. 
 
 
-
-
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.

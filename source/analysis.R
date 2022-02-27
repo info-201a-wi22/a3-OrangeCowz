@@ -82,6 +82,14 @@ yearly_wa_black_white_jail_pop <- incarceration_trends %>%
   filter(state == "WA") %>%
   summarize(sum(black_jail_pop), sum(white_jail_pop))
 
+
+
+df_yearly_wa_black_white_jail_pop <- yearly_wa_black_white_jail_pop %>%
+  select(year, 'sum(black_jail_pop)', 'sum(white_jail_pop)') %>%
+  gather(key = "Key", value = "value", -year)
+
+
+
 wa_trends_over_time_df <- incarceration_trends %>%
   group_by(state) %>%
   filter(state == "WA") %>%
@@ -89,14 +97,15 @@ wa_trends_over_time_df <- incarceration_trends %>%
 
 
 
-trends_over_time <- ggplot(yearly_wa_black_white_jail_pop, aes(x = year)) + 
-  geom_line(aes(y = 'sum(black_jail_pop)'), color = "orangered1") + 
-  geom_line(aes(y = 'sum(white_jail_pop)'), color = "skyblue2") + 
+trends_over_time <- ggplot(df_yearly_wa_black_white_jail_pop, aes(x = year, y = value)) + 
+  geom_line(aes(color = Key), size = 1) + 
+  scale_color_manual(values = c("skyblue2", "darkorange1"),
+                     labels = c("Black Jail Population", "White Jail Population")) +
   labs(
-    x = "years",
-    y = "Prison Population by race",
-    title = "The correlation between black and white jail population in Washington",
-    subtitle = "Grouped by race"
+    x = "Years",
+    y = "Jail Population",
+    title = "The Prison Population Of White Vs. Black Inmates In Washington Over Years",
+    subtitle = "Grouped By Race As Defined By The Key"
   )
 
 trends_over_time  

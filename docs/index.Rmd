@@ -10,7 +10,7 @@ questions regarding the rehabilitation and process of recovery of the U.S.'s
 inmates as well as questions regarding the justice system. Particularly with 
 this assignment, I want to focus on the prison population of inmates from different
 races and compare them to see how they differ. The variables I'd like to focus
-on includes all the prison population by race columns, the location such as state
+on includes all the prison population by race columns, particularly the black, white, and aapi communities, the location such as state
 or urban/rural areas, and the difference between genders. 
 
 # Summary Information
@@ -46,7 +46,31 @@ source("../source/analysis.R")
 You can also embed plots, for example:
 
 ```{r pressure, echo=FALSE}
-plot(pressure)
+source("../source/analysis.R")
+
+plot(trends_over_time)
 ```
+
+In my trends_over_time plot, my goal was to compare the increase or decrease in jail population for white inmates and black inmates in Washington. I chose Washington because I'm most familiar with the general demographic and so I would be able to interpret the information provided by the plot better. The result was an increase in white inmates from 1993 to around 2010. Then, the figures dip to approximately 7,300 before climbing again. These trends are similar to the trends for black inmates. However, I didn't expect the increase to be so flat compared to the white inmates. While it made sense that the overall white jail population was greater than black jail populations each year, I didn't realize that the white population was being incarcerated at a much steeper rate than the black population. 
+
+Perhaps this is due to the media focusing on this particular demographic and so it seems like black crime and black inmates make up the majority, when in reality, this isn't the case. 
+
+
+
+```{r pressure, echo=FALSE}
+source("../source/analysis.R")
+
+plot(trends_over_time)
+```
+
+
+```{r pressure, echo=FALSE}
+source("../source/analysis.R")
+
+plot(trends_over_time)
+```
+
+
+
 
 Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.

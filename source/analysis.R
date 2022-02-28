@@ -165,6 +165,8 @@ variable_comparison_chart
 
 # Map Chart
 
+# Combining the incarceration_trends dataframe with the county.fips to get 
+# longitude and latitude
 county_shape <- map_data("county")
 
 print(county_shape)
@@ -179,15 +181,19 @@ county_shape$polyname = paste0(county_shape$region, ",", county_shape$subregion)
 new_county_df <- merge(x = county_shape, y = county.fips, by = "polyname")
 
 
-new_county_df <- subset(new_county_df, select = -c(group, order, region, subregion))
+new_county_df <- subset(new_county_df, select = -c(order, region, subregion))
 
 print(new_county_df)
   
 maps_fips_incarceration_trends <- merge(x = incarceration_trends, y = new_county_df, by = "fips")
 
+# 
+
+
+
 state_shape <- map_data("state")
 
-ggplot(state_shape) + 
+ggplot(maps_fips_incarceration_trends) + 
   geom_polygon(
     mapping = aes(x = long, y = lat, group = group),
     color = "White",
@@ -195,5 +201,33 @@ ggplot(state_shape) +
   ) +
   coord_map()
 
-state_shape <- map_data("state") %>%
-  RENAME()
+map_chart_3 <- ggplot(maps_fips_incarceration_trends) +
+  geom_polygon(
+    mapping = aes(x = long, y = lat, group = group, fill = black_jail_pop),
+    color = "white",
+    size = 0.1
+  ) + 
+  coord_map() +
+  scale_fill_continuous(low = "coral", high = "coral3") +
+  labs(fill = "Black Jail Population",
+       x = "Longitude",
+       y = "Latitude", 
+       title = "Black Jail Population Mapped over the United States",
+       subtitle = "Greater Populations denoted by darker shades") +
+  theme(
+    plot.background = element_blank(),
+    panel.grid.major = element_blank(),
+    panel.grid.minor = element_blank(),
+    panel.border = element_blank()
+  )
+
+map_chart_3
+
+
+
+
+
+
+
+
+

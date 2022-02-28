@@ -34,7 +34,7 @@ knitr::opts_chunk$set(echo = TRUE)
 ## Summary Information Statistics
 
 ```{r summrary information, echo = TRUE, message = TRUE}
-source("../source/summary_information.R")
+source("../source/analysis.R")
 
 print(largest_total_prison_pop_state)
 
@@ -61,7 +61,7 @@ Perhaps this is due to the media focusing on this particular demographic and so 
 
 Then, with this in mind, I wanted to further analyze and expand my findings to all the races jail population data collected by the dataset. So, I created another trends over time plot with just that. 
 
-```{r trends over time plot, include = TRUE, echo = FALSE}
+```{r further analysis trends over time plot, include = TRUE, echo = FALSE}
 source("../source/analysis.R")
 
 plot(further_analysis_trends_over_time)

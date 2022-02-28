@@ -79,3 +79,36 @@ year_1999_black_prison_pop_fl <- incarceration_trends %>%
   select(black_jail_pop) %>%
   summarize(sum(black_jail_pop)) %>%
   pull('sum(black_jail_pop)')
+
+
+
+
+
+total_prison_pop_state <- incarceration_trends %>%
+  group_by(state) %>%
+  filter(year == max(year)) %>%
+  summarize(sum(total_jail_pop))
+
+total_prison_pop_state <- total_prison_pop_state %>%
+  rename(total_jail_pop = `sum(total_jail_pop)`)
+
+largest_total_prison_pop_state <- total_prison_pop_state %>%
+  filter(total_jail_pop == max(total_jail_pop, na.rm = TRUE)) %>%
+  pull(state)
+
+
+
+total_prison_pop_state <- incarceration_trends %>%
+  group_by(state) %>%
+  filter(year == max(year)) %>%
+  summarize(sum(total_jail_pop))
+
+total_prison_pop_state <- total_prison_pop_state %>%
+  rename(total_jail_pop = `sum(total_jail_pop)`)
+
+print(total_prison_pop_state)
+
+largest_total_prison_pop_state <- total_prison_pop_state %>%
+  filter(total_jail_pop == max(total_jail_pop, na.rm = TRUE)) %>%
+  pull(state)
+

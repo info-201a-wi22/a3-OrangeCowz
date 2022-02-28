@@ -165,4 +165,24 @@ variable_comparison_chart
 
 # Map Chart
 
+county_shape <- map_data("county")
+
+print(county_shape)
+
+county_df <- data("county.fips")
+
+print("county.fips")
+
+county_shape$polyname = paste0(county_shape$region, ",", county_shape$subregion)
+
+
+new_county_df <- merge(x = county_shape, y = county.fips, by = "polyname")
+
+
+new_county_df <- subset(new_county_df, select = -c(group, order, region, subregion))
+
+print(new_county_df)
+  
+maps_fips_incarceration_trends <- merge(x = incarceration_trends, y = new_county_df, by = "fips")
+
 

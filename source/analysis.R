@@ -9,6 +9,7 @@ library("leaflet")
 library("DT")
 library("knitr")
 library("stringr")
+
 incarceration_trends <- read.csv("https://raw.githubusercontent.com/vera-institute/incarceration-trends/master/incarceration_trends.csv")
 
 
@@ -187,11 +188,7 @@ print(new_county_df)
   
 maps_fips_incarceration_trends <- merge(x = incarceration_trends, y = new_county_df, by = "fips")
 
-# 
-
-
-
-state_shape <- map_data("state")
+# Maps Chart
 
 ggplot(maps_fips_incarceration_trends) + 
   geom_polygon(

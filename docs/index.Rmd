@@ -36,6 +36,15 @@ knitr::opts_chunk$set(echo = TRUE)
 ```{r summrary information, echo = TRUE, message = TRUE}
 source("../source/summary_information.R")
 
+print(largest_total_prison_pop_state)
+
+print(black_prison_pop_fl_percent)
+
+print(wa_black_prison_pop)
+
+print(wa_ice_prison_pop)
+
+print(year_1999_black_prison_pop_fl)
 ```
 
 ## Trends Over Time Plot
@@ -49,6 +58,17 @@ plot(trends_over_time)
 In my trends_over_time plot, my goal was to compare the increase or decrease in jail population for white inmates and black inmates in Washington. I chose Washington because I'm most familiar with the general demographic and so I would be able to interpret the information provided by the plot better. The result was an increase in white inmates from 1993 to around 2010. Then, the figures dip to approximately 7,300 before climbing again. These trends are similar to the trends for black inmates. However, I didn't expect the increase to be so flat compared to the white inmates. While it made sense that the overall white jail population was greater than black jail populations each year, I didn't realize that the white population was being incarcerated at a much steeper rate than the black population. 
 
 Perhaps this is due to the media focusing on this particular demographic and so it seems like black crime and black inmates make up the majority, when in reality, this isn't the case. 
+
+Then, with this in mind, I wanted to further analyze and expand my findings to all the races jail population data collected by the dataset. So, I created another trends over time plot with just that. 
+
+```{r trends over time plot, include = TRUE, echo = FALSE}
+source("../source/analysis.R")
+
+plot(further_analysis_trends_over_time)
+```
+
+
+Here, I could see that the increase with the white population in jail is vastly different than the increase in population for all black , latinx, native, and asian american & pacific islanders. 
 
 
 ## Variable Comparison Plot

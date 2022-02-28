@@ -185,4 +185,15 @@ print(new_county_df)
   
 maps_fips_incarceration_trends <- merge(x = incarceration_trends, y = new_county_df, by = "fips")
 
+state_shape <- map_data("state")
 
+ggplot(state_shape) + 
+  geom_polygon(
+    mapping = aes(x = long, y = lat, group = group),
+    color = "White",
+    size = 0.1
+  ) +
+  coord_map()
+
+state_shape <- map_data("state") %>%
+  RENAME()

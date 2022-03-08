@@ -9,6 +9,7 @@ library("leaflet")
 library("DT")
 library("knitr")
 library("stringr")
+library("plotly")
 
 incarceration_trends <- read.csv("https://raw.githubusercontent.com/vera-institute/incarceration-trends/master/incarceration_trends.csv")
 
@@ -110,8 +111,9 @@ trends_over_time <- ggplot(df_yearly_wa_black_white_jail_pop, aes(x = year, y = 
 
 trends_over_time
 
+interactive_trends_over_time <- ggplotly(trends_over_time)
 
-
+interactive_trends_over_time
 # Further analysis of the first trends over time chart.
 
 yearly_wa_jail_pop <- incarceration_trends %>%
@@ -147,7 +149,6 @@ further_analysis_trends_over_time <- ggplot(df_yearly_wa_jail_pop, aes(x = year,
 
 
 further_analysis_trends_over_time
-
 
 
 # Variable Comparison Chart

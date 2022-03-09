@@ -51,10 +51,10 @@ print(year_1999_black_prison_pop_fl)
 
 ## Trends Over Time Plot
 
-```{r trends over time plot, warning = FALSE, message = FALSE, paged.print = FALSE}
+```{r trends over time plot, echo = FALSE, warning = FALSE, message = FALSE, paged.print = FALSE}
 source("../source/analysis.R")
 
-plot(trends_over_time)
+trends_over_time
 ```
 
 In my trends_over_time plot, my goal was to compare the increase or decrease in jail population for white inmates and black inmates in Washington. I chose Washington because I'm most familiar with the general demographic and so I would be able to interpret the information provided by the plot better. The result was an increase in white inmates from 1993 to around 2010. Then, the figures dip to approximately 7,300 before climbing again. These trends are similar to the trends for black inmates. However, I didn't expect the increase to be so flat compared to the white inmates. While it made sense that the overall white jail population was greater than black jail populations each year, I didn't realize that the white population was being incarcerated at a much steeper rate than the black population. 

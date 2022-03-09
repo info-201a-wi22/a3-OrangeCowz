@@ -26,7 +26,7 @@ total_prison_pop_state <- incarceration_trends %>%
 total_prison_pop_state <- total_prison_pop_state %>%
   rename(total_jail_pop = `sum(total_jail_pop)`)
 
-print(total_prison_pop_state)
+# print(total_prison_pop_state)
 
 largest_total_prison_pop_state <- total_prison_pop_state %>%
   filter(total_jail_pop == max(total_jail_pop, na.rm = TRUE)) %>%
@@ -109,11 +109,11 @@ trends_over_time <- ggplot(df_yearly_wa_black_white_jail_pop, aes(x = year, y = 
     subtitle = "Grouped By Race As Defined By The Key"
   )
 
-trends_over_time
+# trends_over_time
 
 interactive_trends_over_time <- ggplotly(trends_over_time)
 
-interactive_trends_over_time
+# interactive_trends_over_time
 # Further analysis of the first trends over time chart.
 
 yearly_wa_jail_pop <- incarceration_trends %>%
@@ -148,7 +148,7 @@ further_analysis_trends_over_time <- ggplot(df_yearly_wa_jail_pop, aes(x = year,
   )
 
 
-further_analysis_trends_over_time
+# further_analysis_trends_over_time
 
 
 # Variable Comparison Chart
@@ -168,7 +168,7 @@ variable_comparison_chart <- ggplot(adult_juvenile_male_jail_pop, aes(x = adult_
     subtitle = "Grouped by State"
   )
 
-variable_comparison_chart
+# variable_comparison_chart
 
 
 # Map Chart
@@ -177,11 +177,11 @@ variable_comparison_chart
 # longitude and latitude
 county_shape <- map_data("county")
 
-print(county_shape)
+# print(county_shape)
 
 county_df <- data("county.fips")
 
-print("county.fips")
+# print("county.fips")
 
 county_shape$polyname <- paste0(county_shape$region, ",", county_shape$subregion)
 
@@ -195,13 +195,13 @@ maps_fips_incarceration_trends <- merge(x = incarceration_trends, y = new_county
 
 # Maps Chart
 
-ggplot(maps_fips_incarceration_trends) +
-  geom_polygon(
-    mapping = aes(x = long, y = lat, group = group),
-    color = "White",
-    size = 0.1
-  ) +
-  coord_map()
+# ggplot(maps_fips_incarceration_trends) +
+#   geom_polygon(
+#     mapping = aes(x = long, y = lat, group = group),
+#     color = "White",
+#     size = 0.1
+#   ) +
+#   coord_map()
 
 map_chart_3 <- ggplot(maps_fips_incarceration_trends) +
   geom_polygon(
@@ -225,4 +225,4 @@ map_chart_3 <- ggplot(maps_fips_incarceration_trends) +
     panel.border = element_blank()
   )
 
-map_chart_3
+# map_chart_3

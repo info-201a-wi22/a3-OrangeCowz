@@ -191,8 +191,6 @@ new_county_df <- merge(x = county_shape, y = county.fips, by = "polyname")
 
 new_county_df <- subset(new_county_df, select = -c(order, region, subregion))
 
-print(new_county_df)
-
 maps_fips_incarceration_trends <- merge(x = incarceration_trends, y = new_county_df, by = "fips")
 
 # Maps Chart

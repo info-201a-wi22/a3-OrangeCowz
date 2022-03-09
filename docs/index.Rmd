@@ -64,7 +64,7 @@ Perhaps this is due to the media focusing on this particular demographic and so 
 In my further_analysis_trends_over_time plot, the other races such as Native, Asian American & Pacific Islander, Latinx, had much more similar trends, such as increases and decreases over the years than the White Jail Population.  
 
 
-```{r further analysis trends over time plot, include = TRUE, warning = FALSE, message = FALSE}
+```{r further analysis trends over time plot, warning = FALSE, message = FALSE}
 source("../source/analysis.R")
 
 plot(further_analysis_trends_over_time)
